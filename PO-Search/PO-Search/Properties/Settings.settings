@@ -10,8 +10,5 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=tcp:ei-analytics1,49172;Initial Catalog=EIWarehouse;Integrated Security=True</Value>
     </Setting>
-    <Setting Name="Setting" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
-    </Setting>
   </Settings>
 </SettingsFile>

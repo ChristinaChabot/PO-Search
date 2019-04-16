@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EIWarehouse" Class="POClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=tcp:ei-analytics1,49172;Initial Catalog=EIWarehouse;Integrated Security=True" SettingsObjectName="PO_Search.Properties.Settings" SettingsPropertyName="EIWarehouseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.POHeader" Member="POHeaders">
+    <Type Name="POHeader">
+      <Column Name="Company" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="PoNum" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IsAnRFQ" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BuyerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BuyerPhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BuyerFax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BuyerName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BuyerIsAnEmpOfCurrCompany" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EpicorCurrencyCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="CurrencyTickerSymbol" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="POExchangeRate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="ShipVia" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="ShipToName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ShipToAdd1" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="ShipToAdd2" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="ShipToAdd3" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="ShipToCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ShipToState" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="ShipToZip" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="ShipToCountry" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PoCommentText" Type="System.String" DbType="VarChar(1500)" CanBeNull="true" />
+      <Column Name="VendorPurPoint" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="VendorName" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="VendorNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VendAddr1" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="VendAddr2" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="VendAddr3" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="VendCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="VendState" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="VendZip" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="VendCountry" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="VendPhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VendFax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VendAcct" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VendContact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VendCntInactive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VendorRating" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="CompAddress1" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="CompAddress2" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="CompAddress3" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="CompCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CompState" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="CompZip" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="CompCountry" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CompPhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CompFax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ShowSalesTax" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SalesTaxPercentageRate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="TaxVerbage" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="UseUSADateFormat" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DisplayPoOrderDateText" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DisplayPoNumber" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.POLine" Member="POLines">
+    <Type Name="POLine">
+      <Column Name="PoHeader" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PoLine" Member="PoLine1" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PoRelNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RowNum" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PartNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RevisionNum" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="LineDesc" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
+      <Column Name="Manufacturer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VenPartNum" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CommentText" Type="System.String" DbType="VarChar(240)" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CostPerCode" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="IUM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="JobNum" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AssemblySeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JobSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TranType" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ClassID" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="GLAccount" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DispManVenPartNbr" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DispPartNumber" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="DispLineDescrip" Type="System.String" DbType="VarChar(510)" CanBeNull="true" />
+      <Column Name="DispJobAssy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DispDueDateText" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DispQty" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DispUnitCost" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DispExtCost" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.employee" Member="employees">
+    <Type Name="employee">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fName" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="lName" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="positionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="startDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="endDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="classificationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="location" Type="System.String" DbType="Char(24)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

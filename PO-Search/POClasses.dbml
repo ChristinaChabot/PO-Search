@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EIWarehouse" Class="POClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=tcp:ei-analytics1,49172;Initial Catalog=EIWarehouse;Integrated Security=True" SettingsObjectName="PO_Search.Properties.Settings" SettingsPropertyName="EIWarehouseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.employee" Member="employees">
+    <Type Name="employee">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fName" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="lName" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="positionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="startDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="endDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="classificationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="location" Type="System.String" DbType="Char(24)" CanBeNull="true" />
+      <Association Name="employee_POLineFact" Member="POLineFacts" ThisKey="id" OtherKey="Buyer" Type="POLineFact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.POLineFact" Member="POLineFacts">
+    <Type Name="POLineFact">
+      <Column Name="PO" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Line" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PartNumber" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="PartDescription" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
+      <Column Name="VendorPartNumber" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceDate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelNum" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="RevNum" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IUM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Manufacturer" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="TranType" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="ExtendedCost" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="InvoiceAmt" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="InvoiceQuantity" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Closed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Job" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="WBS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="JobSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClassID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(240)" CanBeNull="true" />
+      <Column Name="Vendor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Buyer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IsAnRFQ" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CurrencyCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="CurrencyChar" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="ExchangeRate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CostPerCode" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ShipVia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ShipTo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Invoices" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="employee_POLineFact" Member="employee" ThisKey="Buyer" OtherKey="id" Type="employee" IsForeignKey="true" />
+      <Association Name="Assembly_POLineFact" Member="Assembly" ThisKey="Job,WBS" OtherKey="JobNum,WBS" Type="Assembly" IsForeignKey="true" />
+      <Association Name="Shipping_POLineFact" Member="Shipping" ThisKey="ShipVia" OtherKey="Id" Type="Shipping" IsForeignKey="true" />
+      <Association Name="Class_POLineFact" Member="Class" ThisKey="ClassID" OtherKey="Id" Type="Class" IsForeignKey="true" />
+      <Association Name="Vendor_POLineFact" Member="Vendor1" ThisKey="Vendor" OtherKey="VendorKey" Type="Vendor" IsForeignKey="true" />
+      <Association Name="DimDate_POLineFact" Member="DimDate" ThisKey="DueDate" OtherKey="DateKey" Type="DimDate" IsForeignKey="true" />
+      <Association Name="DimDate_POLineFact1" Member="DimDate1" ThisKey="InvoiceDate" OtherKey="DateKey" Type="DimDate" IsForeignKey="true" />
+      <Association Name="DimDate_POLineFact2" Member="DimDate2" ThisKey="OrderDate" OtherKey="DateKey" Type="DimDate" IsForeignKey="true" />
+      <Association Name="Address_POLineFact" Member="Address" ThisKey="ShipTo" OtherKey="Id" Type="Address" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Assembly]" Member="Assemblies">
+    <Type Name="Assembly">
+      <Column Name="JobNum" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WBS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Assembly_POLineFact" Member="POLineFacts" ThisKey="JobNum,WBS" OtherKey="Job,WBS" Type="POLineFact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shipping" Member="Shippings">
+    <Type Name="Shipping">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Shipping_POLineFact" Member="POLineFacts" ThisKey="Id" OtherKey="ShipVia" Type="POLineFact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Class" Member="Classes">
+    <Type Name="Class">
+      <Column Name="Id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Class" Member="Class1" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Association Name="Class_POLineFact" Member="POLineFacts" ThisKey="Id" OtherKey="ClassID" Type="POLineFact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vendor" Member="Vendors">
+    <Type Name="Vendor">
+      <Column Name="VendorKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorPurPoint" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="VendorName" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="VendorNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VendorAddr1" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="VendorAddr2" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="VendorAddr3" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="VendorCity" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="VendorState" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="VendorZip" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="VendorCountry" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="VendorPhone" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="VendorFax" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="VendorAcct" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VendorContact" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="VendorCntInactive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VendorRating" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Vendor_POLineFact" Member="POLineFacts" ThisKey="VendorKey" OtherKey="Vendor" Type="POLineFact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DimDate" Member="DimDates">
+    <Type Name="DimDate">
+      <Column Name="DateKey" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateName" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="DayOfWeek" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DayNameOfWeek" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DayOfMonth" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DayOfYear" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="WeekdayWeekend" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="WeekOfYear" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="MonthName" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MonthOfYear" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsLastDayOfMonth" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CalendarQuarter" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CalendarYear" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CalendarYearMonth" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CalendarYearQtr" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FiscalMonthOfYear" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="FiscalQuarter" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="FiscalYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FiscalYearMonth" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FiscalYearQtr" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="InsertAuditKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdateAuditKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DimDate_POLineFact" Member="POLineFacts" ThisKey="DateKey" OtherKey="DueDate" Type="POLineFact" />
+      <Association Name="DimDate_POLineFact1" Member="POLineFacts1" ThisKey="DateKey" OtherKey="InvoiceDate" Type="POLineFact" />
+      <Association Name="DimDate_POLineFact2" Member="POLineFacts2" ThisKey="DateKey" OtherKey="OrderDate" Type="POLineFact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CompAddress1" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CompAddress2" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="CompAddress3" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="CompCity" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="CompState" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="CompZip" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="CompCountry" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CompPhone" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CompFax" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Association Name="Address_POLineFact" Member="POLineFacts" ThisKey="Id" OtherKey="ShipTo" Type="POLineFact" />
+    </Type>
+  </Table>
+</Database>

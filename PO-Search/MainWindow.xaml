@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PO_Search"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="PO Search" Height="466.5" Width="1602.95" ResizeMode="CanResize" SizeToContent="Manual"
+        Icon="./Resource/EI-Icon.ico">
+    <Grid Margin="0,0,8,1">
+        <Canvas Margin="1,0,-12,0" RenderTransformOrigin="0.223,0.247">
+
+            <Border BorderThickness="1" Height="292" Canvas.Left="1201" Canvas.Top="67" Width="370"/>
+            <Label x:Name="lblMultiFieldSearch" Content="Multi-Field Search" HorizontalAlignment="Right" VerticalAlignment="Center" Width="172" Height="37" Grid.Column="1" Grid.RowSpan="2" Canvas.Left="1292" Canvas.Top="10" Padding="0" HorizontalContentAlignment="Center"/>
+            <CheckBox x:Name="cbPartNumber"  TabIndex="18" Content="Part Number" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="138" Grid.Column="1" Canvas.Left="1306" Canvas.Top="132"/>
+            <TextBox x:Name="txtFieldsContain" TabIndex="17" HorizontalAlignment="Right" Height="25" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211" Grid.Column="1" Canvas.Left="1346" Canvas.Top="90" KeyDown="txtFieldsContain_EnterKeyDown"/>
+            <Label x:Name="lblFieldsContain" Content="Fields Contain:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="140" Height="37" Grid.Row="1" Grid.Column="1" Canvas.Left="1201" Canvas.Top="80" Margin="0" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblLookin" Content="LOOK IN:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="101" Height="37" Grid.Row="2" Grid.Column="1" Canvas.Left="1201" Canvas.Top="116" Margin="0" HorizontalContentAlignment="Right"/>
+            <CheckBox x:Name="cbDescription" TabIndex="19" Content="Description" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Height="29" Width="133" Grid.Column="1" Canvas.Left="1306" Canvas.Top="172"/>
+            <CheckBox x:Name="cbManufacturer" TabIndex="20" Content="Manufacturer" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="154" Grid.Column="1" Canvas.Left="1306" Canvas.Top="213"/>
+            <CheckBox x:Name="cbSupplierPartNumber" TabIndex="21" Content="MFR/Supplier Part Number" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Height="31" Width="262" Grid.Column="1" Canvas.Left="1306" Canvas.Top="260"/>
+            <Button x:Name="btnSearchMulti" TabIndex="22" Content="Search" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Width="102" Height="37" Grid.Column="1" Canvas.Left="1342" Canvas.Top="299" Click="BtnSearchMulti_Click"/>
+            <Label x:Name="lblViewPONumber" Content="View PO#:" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="23" Width="106" Canvas.Left="17" Canvas.Top="391" RenderTransformOrigin="-0.13,0.652" Padding="0" Margin="0" HorizontalContentAlignment="Right" />
+            <TextBox x:Name="txtViewPONumber" TabIndex="23" HorizontalAlignment="Left" Grid.Row="3" TextWrapping="Wrap" Text="" Width="189" Canvas.Left="128" Canvas.Top="389" Height="25"/>
+            <Button x:Name="btnPrintPO" TabIndex="24" Content="PRINT PO" HorizontalAlignment="Left" Grid.Row="3" Width="101" Grid.ColumnSpan="2" Canvas.Left="345" Canvas.Top="384" Height="30"/>
+            <Button x:Name="btnViewInvoice" TabIndex="25" Content="VIEW INVOICE" HorizontalAlignment="Right" Grid.Row="3" Width="138" Grid.Column="1" Height="30" VerticalAlignment="Top" Canvas.Left="485" Canvas.Top="384"/>
+            <Button x:Name="btnViewMyOpenPOS" TabIndex="26" Content="VIEW MY OPEN POS" Grid.Row="3" Grid.Column="1" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="202" Canvas.Left="780" Canvas.Top="384"/>
+            <Button x:Name="btnSelectAll" TabIndex="27" Content="SELECT ALL" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Width="124" Height="30" VerticalAlignment="Top" Canvas.Left="1026" Canvas.Top="384"/>
+            <Button x:Name="btnSelectNone" TabIndex="28" Content="SELECT NONE" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Width="155" Height="30" VerticalAlignment="Top" Canvas.Left="1179" Canvas.Top="384"/>
+            <Button x:Name="btnExportToExcel" TabIndex="29" Content="EXPORT TO EXCEL" Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Right" Width="218" Height="30" VerticalAlignment="Top" Canvas.Left="1339" Canvas.Top="384"/>
+            <TextBox x:Name="txtPartNumber"  TabIndex="9" HorizontalAlignment="Right" Height="27" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" Grid.Column="1" Canvas.Left="775" Canvas.Top="73" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lblPartNumber" Content="Part Number" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.474,0.462" Grid.Column="1" Height="38" Width="127" Canvas.Left="639" Canvas.Top="69" Margin="0" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblDescription" Content="Description" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Grid.Column="1" Height="35" Width="131" Canvas.Left="629" Canvas.Top="105" Margin="0" HorizontalContentAlignment="Right"/>
+            <TextBox x:Name="txtDescription"  TabIndex="10" HorizontalAlignment="Right" Height="27" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" Grid.Column="1" Canvas.Left="775" Canvas.Top="112" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lblManufacturer" Content="Manufacturer" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Grid.Column="1" Height="35" Width="137" Canvas.Left="629" Canvas.Top="151" Margin="0" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblSupplierPart" Content="Supplier Part" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Grid.Column="1" Height="38" Width="144" RenderTransformOrigin="8.156,2.962" Canvas.Left="622" Canvas.Top="191" Margin="0" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblJobs" Content="Jobs" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Grid.Column="1" Height="32" Width="127" Canvas.Left="639" Canvas.Top="234" Margin="0" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblAssemblies" Content="Assemblies" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Grid.Column="1" Height="36" Width="141" Canvas.Left="629" Canvas.Top="271" Margin="0" HorizontalContentAlignment="Right"/>
+            <TextBox x:Name="txtAssemblies" TabIndex="14" HorizontalAlignment="Right" Height="27" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Grid.Column="1" Canvas.Left="775" Canvas.Top="271"/>
+            <TextBox x:Name="txtJobs" TabIndex="13" HorizontalAlignment="Right" Height="27" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Grid.Column="1" Canvas.Left="775" Canvas.Top="234"/>
+            <TextBox x:Name="txtSupplierPart" TabIndex="12" HorizontalAlignment="Right" Height="27" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Grid.Column="1" Canvas.Left="775" Canvas.Top="193"/>
+            <TextBox x:Name="txtManufacturer" TabIndex="11" HorizontalAlignment="Right" Height="27" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Grid.Column="1" Canvas.Left="775" Canvas.Top="151"/>
+            <Button x:Name="btnHelp" Content="Help" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Width="102" Height="37" Grid.Column="1" Canvas.Left="1012" Canvas.Top="160"/>
+            <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Width="102" Height="37" Grid.Column="1" Canvas.Left="1012" Canvas.Top="209" Click="BtnReset_Click"/>
+            <Button x:Name="btnSearch" TabIndex="16" Content="Search" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Width="102" Height="37" Grid.Column="1" Canvas.Left="1012" Canvas.Top="260" Click="BtnSearch_Click"/>
+            <CheckBox x:Name="cbIncludeChildAssemblies" TabIndex="15" Content="Include Child Assemblies" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Height="24" Width="252" Grid.Column="1" Canvas.Left="730" Canvas.Top="312"/>
+            <Label Grid.Row="0" x:Name="lblBuyer" Content="Buyer" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="73" Canvas.Left="11" Canvas.Top="12" Padding="0" Margin="1" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtBuyer" TabIndex="0" KeyUp="txtBuyer_KeyUp" HorizontalAlignment="Left" Height="27" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="166" Canvas.Left="15" Canvas.Top="55" />
+            <Label x:Name="lblSupplier" Content="Supplier" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="121" Grid.RowSpan="2" Canvas.Left="269" Canvas.Top="10" VerticalContentAlignment="Center" Margin="1" Padding="0"/>
+            <TextBox x:Name="txtSupplier" TabIndex="1" KeyUp="txtSupplier_KeyUp" HorizontalAlignment="Left" Height="27" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2" Canvas.Left="256" Canvas.Top="55"/>
+            <Border BorderThickness="1" HorizontalAlignment="Right" Height="57" Grid.Row="1" VerticalAlignment="Top" Width="166" Grid.Column="1" Canvas.Left="437" Canvas.Top="10"/>
+            <CheckBox x:Name="cbOpen" TabIndex="2" Content="Open" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="70" Grid.Column="1" Canvas.Left="442" Canvas.Top="24" VerticalContentAlignment="Center"/>
+            <CheckBox x:Name="cbClosed" TabIndex="3" Content="Closed" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="84" Grid.Column="1" Canvas.Left="519" Canvas.Top="25" VerticalContentAlignment="Center"/>
+            <Border BorderThickness="1" Height="54" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Width="399" Canvas.Left="608" Canvas.Top="10" />
+            <CheckBox x:Name="cbMaterial" TabIndex="4" Content="Material" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="23" Width="101" Grid.Column="1" Canvas.Left="613" Canvas.Top="24" VerticalContentAlignment="Center"/>
+            <CheckBox x:Name="cbSubcontract" TabIndex="5" Content="Subcontract" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="138" Grid.Column="1" Canvas.Left="728" Canvas.Top="23" VerticalContentAlignment="Center"/>
+            <CheckBox x:Name="cbOtherInv"  TabIndex="6" Content="Other/Inv" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="108" Grid.Column="1" Canvas.Left="880" Canvas.Top="22" VerticalContentAlignment="Center"/>
+            <Label x:Name="lblOrderedFrom" Content="Ordered From" HorizontalAlignment="Right" VerticalAlignment="Top" Height="33" Width="158" Grid.Column="1" Grid.RowSpan="2" Canvas.Left="1012" Canvas.Top="11" Margin="0"/>
+            <DatePicker x:Name="dpStart" HorizontalAlignment="Right"  TabIndex="7" Grid.Row="1" VerticalAlignment="Top" SelectedDateFormat="Short" Height="31" Width="166" Grid.Column="1" Canvas.Left="1012" Canvas.Top="52"/>
+            <Label x:Name="lblOrderedTo" Content="To" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.455,0.538" Height="38" Width="41" Grid.Column="1" Canvas.Left="1043" Canvas.Top="78" Margin="0"/>
+            <DatePicker x:Name="dpEnd" HorizontalAlignment="Right" TabIndex="8" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="166" Grid.Column="1" Canvas.Left="1012" Canvas.Top="116"/>
+            <DataGrid x:Name="dgBuyers" Height="234" Foreground="Black" Canvas.Left="15" Canvas.Top="90" Width="221" AutoGenerateColumns="True" AlternatingRowBackground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" RowBackground="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" >
+            </DataGrid>
+            <DataGrid x:Name="dgSupplier" Height="234" Foreground="Black" Canvas.Left="256" Canvas.Top="90" Width="323" AutoGenerateColumns="True" AlternatingRowBackground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" RowBackground="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+        </Canvas>
+        <Button x:Name="btnSettings" Margin="0,3,-0.2,0" VerticalAlignment="Top" Height="27" Background="Transparent" BorderBrush="Transparent" Click="Settings_Click" HorizontalAlignment="Right" Width="42" >
+            <StackPanel Width="34">
+                <Image Source="Resource/Settings.png" Height="25" Width="28" Margin="3,0" />
+                <TextBlock><Run Text="Settings"/></TextBlock>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

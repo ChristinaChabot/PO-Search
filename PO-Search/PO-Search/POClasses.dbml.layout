@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12" name="POClasses">
+  <DataContextMoniker Name="/POClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1ee0553d-2d70-43f8-bd75-b951d1d8bbb9" absoluteBounds="1.875, 0.5, 2, 11.1936669921875">
+      <DataClassMoniker Name="/POClassesDataContext/POHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b844d82-7ed0-4f8d-9a59-0adbaf90a17a" absoluteBounds="1.8900000000000001, 0.96, 1.9700000000000002, 10.6336669921875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="75716426-a663-48fc-9d08-21b4e37f03b6" absoluteBounds="4.875, 0.5, 2, 6.3861311848958326">
+      <DataClassMoniker Name="/POClassesDataContext/POLine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0fbdd32d-7de5-4e95-99e7-9a71b31ba4b4" absoluteBounds="4.89, 0.96000000000000085, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f851a3cd-2588-4d67-a3b7-4efd258cb9c4" absoluteBounds="0.5, 1.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/POClassesDataContext/employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8727a7bc-4028-4a50-8ad4-401368f124a8" absoluteBounds="0.51500000000000012, 2.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
